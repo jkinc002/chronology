@@ -1,0 +1,15 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridItemText"
+    android:layout_gravity="center"
+    android:layout_width="60dp"
+    android:layout_height="120dp"
+    android:background="#ffffff"
+    android:minHeight="120dp"
+    android:minWidth="60dp"
+    android:maxHeight="120dp"
+    android:maxWidth="60dp"
+    android:gravity="center_horizontal"
+    android:padding="5dp"
+    android:textColor="#000000"
+    android:visibility="visible">
+</TextView>

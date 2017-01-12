@@ -57,7 +57,11 @@
         android:paddingBottom="10dp"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColor="@color/abc_primary_text_material_dark"
+        android:background="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
     <GridView
         android:layout_width="wrap_content"
@@ -66,7 +70,6 @@
         android:layout_below="@+id/hubTitle"
         android:layout_above="@+id/addSceneButton"
         android:numColumns="3"
-        android:background="@color/material_grey_300"
         android:animationCache="false"
         android:clipChildren="false"
         android:contextClickable="false"
@@ -74,8 +77,10 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:columnWidth="100dp"
-        android:horizontalSpacing="5dp"
-        android:verticalSpacing="5dp" />
+        android:horizontalSpacing="7dp"
+        android:verticalSpacing="7dp"
+        android:background="@color/material_grey_300"
+        android:requiresFadingEdge="vertical" />
 
     <Button
         android:layout_width="wrap_content"
@@ -88,6 +93,66 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         android:onClick="toggleAddSceneMenu"
-        android:background="@color/material_grey_300" />
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/addSceneButton"
+        android:background="#000000"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/addSceneButton"
+        android:background="@android:color/black"
+        android:id="@+id/sceneOptionBar"
+        android:visibility="gone"
+        android:translationZ="5dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Move"
+            android:id="@+id/button4"
+            android:onClick="moveScene"
+            android:nestedScrollingEnabled="false"
+            android:layout_toRightOf="@+id/button7"
+            android:layout_toLeftOf="@+id/alignHelper"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:id="@+id/button5"
+            android:layout_alignParentEnd="false"
+            android:onClick="deleteScene"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:id="@+id/button6"
+            android:layout_toLeftOf="@+id/button5"
+            android:onClick="editScene"
+            android:layout_toRightOf="@+id/alignHelper"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="return"
+            android:id="@+id/button7"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/alignHelper"></RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

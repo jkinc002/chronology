@@ -3,7 +3,7 @@
     android:layout_gravity="center"
     android:layout_width="60dp"
     android:layout_height="120dp"
-    android:background="@drawable/square_white"
+    android:background="@drawable/square_grey"
     android:minHeight="120dp"
     android:minWidth="60dp"
     android:maxHeight="120dp"

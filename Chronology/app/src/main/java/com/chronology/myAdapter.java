@@ -15,6 +15,7 @@ public class myAdapter extends BaseAdapter {
     private Context mContext;
     String[] items;
     LayoutInflater inflater;
+    boolean selected;
 
     myAdapter (Context c){
         mContext = c;
@@ -28,18 +29,30 @@ public class myAdapter extends BaseAdapter {
 
     }
 
+    myAdapter (Context c, String[] s, boolean selected){
+        mContext = c;
+        items = s;
+        inflater = (LayoutInflater) this.mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.selected = selected;
+    }
+
     public int getCount() {
         return items.length;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        TextView textView = null;
         if(convertView == null){
             convertView = inflater.inflate(R.layout.scene, null);
         }
-        TextView textView = (TextView) convertView.findViewById(R.id.gridItemText);
-        textView.setText(this.items[position]);
+        if(selected){
+            convertView = inflater.inflate(R.layout.scene_unfocused, null);
+        }
 
+
+        textView = (TextView) convertView.findViewById(R.id.gridItemText);
+        textView.setText(this.items[position]);
         return convertView;
     }
 

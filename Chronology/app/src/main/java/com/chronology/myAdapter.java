@@ -50,7 +50,6 @@ public class myAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.scene_unfocused, null);
         }
 
-
         textView = (TextView) convertView.findViewById(R.id.gridItemText);
         textView.setText(this.items[position]);
         return convertView;

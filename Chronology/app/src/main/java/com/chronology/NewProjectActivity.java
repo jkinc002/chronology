@@ -10,10 +10,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created by Jordan on 1/9/2017.
  */
 public class NewProjectActivity extends AppCompatActivity {
+
+    String suffix = ".chrn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -24,15 +29,34 @@ public class NewProjectActivity extends AppCompatActivity {
     public void approveNew(View view){
         Intent intent = new Intent(this, ProjectHubActivity.class);
         EditText et = (EditText) findViewById(R.id.TitleField);
+
         String s = et.getText().toString();
+        intent.putExtra("title", s);
+        String filename = s.concat(this.suffix);
+
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        File file = new File(getApplicationContext().getFilesDir(), filename);
+
         if(s.isEmpty()) {
-            Context context = getApplicationContext();
             CharSequence message = "Title Required";
-            int duration = Toast.LENGTH_SHORT;
             Toast.makeText(context, message, duration).show();
             return;
         }
-        intent.putExtra("title", s);
+        else if(file.exists()){
+            CharSequence message = "File Already Exists";
+            Toast.makeText(context, message, duration).show();
+            return;
+        }
+
+        /*Create file in internal storage*/
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        intent.putExtra("filename", filename);
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.newProjectContainer);
 
@@ -46,5 +70,7 @@ public class NewProjectActivity extends AppCompatActivity {
     }
 
     public void cancelNewProject(View view){
+        Intent intent = new Intent(this, NewProjectActivity.class);
+        startActivity(intent);
     }
 }

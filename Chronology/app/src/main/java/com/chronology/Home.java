@@ -15,8 +15,13 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
     }
 
-    void newProject(View view){
+    public void newProject(View view){
         Intent intent = new Intent(this, NewProjectActivity.class);
+        startActivity(intent);
+    }
+
+    public void openProject(View view){
+        Intent intent = new Intent (this, OpenProjectActivity.class);
         startActivity(intent);
     }
 }

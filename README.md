@@ -12,3 +12,9 @@ An Android app for writers to organize the key events of their story.
 - Move individual scene to another spot in the story
 - Select multiple scenes for deleting/moving
 
+## Pictures
+<img src="https://github.com/jkinc002/chronology/blob/master/Screenshot_20170216-131908.png" width="250">
+<img src="https://github.com/jkinc002/chronology/blob/master/Screenshot_20170216-132121.png" width="250">
+<img src="https://github.com/jkinc002/chronology/blob/master/Screenshot_20170216-132155.png" width="250">
+<img src="https://github.com/jkinc002/chronology/blob/master/Screenshot_20170216-132241.png" width="250">
+

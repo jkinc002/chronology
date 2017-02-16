@@ -2,6 +2,8 @@ package com.chronology;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -21,16 +23,25 @@ public class OpenProjectActivity extends AppCompatActivity {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.activity_open_project);
 
+        ListView listView = (ListView) findViewById(R.id.projectListView);
+
         String[] projectList = getProjectList();
         if(projectList == null){
-            Toast.makeText(getApplicationContext(), "size = 0", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No Projects Exist", Toast.LENGTH_SHORT).show();
         }
 
         else {
             ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, projectList);
-            ListView listView = (ListView) findViewById(R.id.projectListView);
             listView.setAdapter(itemsAdapter);
         }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
 
     }
 
@@ -43,7 +54,7 @@ public class OpenProjectActivity extends AppCompatActivity {
 
         for(int i = 0; i < filesList.length; ++i){
             String s = filesList[i].getName();
-            if(s.endsWith(".chrn")) ++numOfFiles;
+            if(s.endsWith(this.suffix)) ++numOfFiles;
         }
         if(numOfFiles == 0) return null;
 
@@ -51,7 +62,7 @@ public class OpenProjectActivity extends AppCompatActivity {
         int j = 0;
         for(int i = 0; i < filesList.length; ++i) {
             String s = filesList[i].getName();
-            if(s.endsWith(".chrn")){
+            if(s.endsWith(this.suffix)){
                 retArray[j] = s;
                 ++j;
             }

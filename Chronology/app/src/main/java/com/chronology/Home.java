@@ -24,4 +24,9 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent (this, OpenProjectActivity.class);
         startActivity(intent);
     }
+
+    public void deleteProject(View view){
+        Intent intent = new Intent(this, DeleteProjectActivity.class);
+        startActivity(intent);
+    }
 }

@@ -51,7 +51,8 @@
             android:text="Delete"
             android:id="@+id/deleteButton"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:onClick="deleteProject" />
 
         <Button
             android:layout_width="match_parent"

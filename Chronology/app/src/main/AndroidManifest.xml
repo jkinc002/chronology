@@ -26,6 +26,10 @@
         <activity android:name=".OpenProjectActivity"
             android:windowSoftInputMode="stateHidden">
         </activity>
+        <activity android:name=".DeleteProjectActivity">
+        </activity>
+        <activity android:name=".CheckSceneActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -32,6 +32,7 @@ public class NewProjectActivity extends AppCompatActivity {
 
         String s = et.getText().toString();
         intent.putExtra("title", s);
+        intent.putExtra("arraySize", 0);
         String filename = s.concat(this.suffix);
 
         Context context = getApplicationContext();
